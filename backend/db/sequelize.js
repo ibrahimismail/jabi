@@ -11,7 +11,6 @@ const sequelize = new Sequelize(
 	}
 );
 
-console.log(sequelize);
 sequelize.sync();
 
 export default sequelize;

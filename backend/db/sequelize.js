@@ -1,5 +1,5 @@
-const { DB_USERNAME, DB_NAME, DB_PASSWORD, DB_HOST } = require('./config');
-const Sequelize = require('sequelize');
+import { DB_USERNAME, DB_NAME, DB_PASSWORD, DB_HOST } from './config';
+import Sequelize from 'sequelize';
 
 const sequelize = new Sequelize(
 	process.env.DB_NAME,
@@ -14,4 +14,4 @@ const sequelize = new Sequelize(
 console.log(sequelize);
 sequelize.sync();
 
-module.exports = sequelize;
+export default sequelize;

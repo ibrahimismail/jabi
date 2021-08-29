@@ -38,7 +38,7 @@ const loadModels = async () => {
 		const modelPath = path.join(__dirname, file);
 		await import(modelPath)
 			.then((module) => {
-				const model = module.default;
+				const model = module.define;
 				const Model = model(sequelize, Sequelize.DataTypes);
 				db[model.name] = Model;
 			})

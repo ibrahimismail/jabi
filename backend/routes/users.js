@@ -1,26 +1,9 @@
 import express from 'express';
-import db from '../db/models';
+import UserController from '../db/controllers/UserController';
 
 var router = express.Router();
 
-router.get('/', async function (req, res, next) {
-	try {
-		const users = await db.sequelize.models.User.findAll();
-		res.send({ users });
-	} catch (e) {
-		console.error(e);
-	}
-});
-
-router.post('/', async function (req, res, next) {
-	try {
-		await db.sequelize.models.User.create({
-			...req.body,
-		});
-		res.send({ message: 'user created' });
-	} catch (e) {
-		console.error(e);
-	}
-});
+router.get('/', UserController.findAllUsers);
+router.post('/', UserController.createUser);
 
 export default router;

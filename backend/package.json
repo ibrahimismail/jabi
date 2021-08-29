@@ -4,7 +4,8 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"start": "nodemon --experimental-modules --es-module-specifier-resolution=node ./bin/www.js"
+		"start": "kill-port 5000 && nodemon --experimental-modules --experimental-specifier-resolution=node ./bin/www.js",
+		"db:sync": "node --experimental-modules --experimental-specifier-resolution=node ./scripts/db/sync"
 	},
 	"dependencies": {
 		"cookie-parser": "~1.4.4",
@@ -17,6 +18,7 @@
 		"sequelize": "^6.6.5"
 	},
 	"devDependencies": {
+		"kill-port": "^1.6.1",
 		"nodemon": "^2.0.12"
 	}
 }

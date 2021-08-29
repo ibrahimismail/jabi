@@ -1,11 +1,9 @@
-import dotenv from 'dotenv';
-import sequelize from '../../db/sequelize';
-dotenv.config();
+import db from '../../db/models';
 
 async function main() {
 	try {
 		console.log('Starting database models synchronization...');
-		await sequelize.sync({ alter: true });
+		await db.sequelize.sync({ alter: true });
 		console.log('All models were synchronized successfully.');
 	} catch (exception) {
 		console.error(exception);
